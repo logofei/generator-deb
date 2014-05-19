@@ -5,9 +5,10 @@ var exec = require('child_process').exec;
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
+
 var DebGenerator = yeoman.generators.Base.extend({
   init: function () {
-    this.pkg = require('../package.json');
+    //this.pkg = require('../package.json');
 
     this.on('end', function () {
       if (!this.options['skip-install']) {
