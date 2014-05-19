@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "yeoman-generator": "~0.10.2",
-	"yosay":"~0.2.1",
+	"yosay":"~0.2.1"
   },
   "devDependencies": {
     "mocha": "~1.9.0"
