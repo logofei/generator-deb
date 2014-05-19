@@ -1,6 +1,6 @@
 {
   "name": "generator-deb",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A generator for Yeoman",
   "keywords": [
     "yeoman-generator"
@@ -20,15 +20,19 @@
   "scripts": {
     "test": "mocha"
   },
+  "keywords": [
+    "yeoman-generator"
+  ],
   "dependencies": {
-    "yeoman-generator": "~0.10.2",
-	"yosay":"~0.2.1"
+    "yeoman-generator": "~0.16.0",
+
+    "yosay": "^0.1.0"
   },
   "devDependencies": {
-    "mocha": "~1.9.0"
+    "mocha": "*"
   },
-  "engines": {
-    "node": ">=0.8.0"
+  "peerDependencies": {
+    "yo": ">=1.0.0"
   },
   "licenses": [
     {
