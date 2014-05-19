@@ -58,13 +58,13 @@ var DebGenerator = yeoman.generators.Base.extend({
     this.mkdir(path.join(dirsrc , 'build'));
     this.mkdir(path.join(dirsrc , 'demo'));
 	
-	this.template('index.html',path.join(dirsrc , 'demo/index.html'));
-	this.template('index.js',path.join(dirsrc , 'index.js'));
+	this.copy('index.html',path.join(dirsrc , 'demo/index.html'));
+	this.copy('index.js',path.join(dirsrc , 'index.js'));
 	this.copy('index.less',path.join(dirsrc , 'index.less'));
 	
 	this.copy('.gitignore',path.join(dirsrc , '.gitignore'));
 	this.copy('Gruntfile.js',path.join(dirsrc , 'Gruntfile.js'));
-	this.template('_package.json', path.join(dirsrc , 'package.json'));
+	this.copy('_package.json', path.join(dirsrc , 'package.json'));
 	
 //	this.template('abc.json',path.join(dirsrc , 'abc.json'));
     this.copy('README.md',path.join(dirsrc , 'README.md'));
