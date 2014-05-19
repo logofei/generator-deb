@@ -53,7 +53,7 @@ var DebGenerator = yeoman.generators.Base.extend({
   app: function () {
 	this.mkdir(this.widgetName);
 	
-	var dirsrc = path.join(this.widgetName + '/');
+	var dirsrc = path.join(this.widgetName);
 	
     this.mkdir(path.join(dirsrc , 'build'));
     this.mkdir(path.join(dirsrc , 'demo'));
