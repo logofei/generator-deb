@@ -10,7 +10,13 @@ KISSY.add("deb/<%= widgetName %>/index",function (S,Base,Node) {
     /**
      * 组件描述
      * @class <%= className %>
-	 * @param Config {Object} options
+	 *
+     *    var cfg = {
+     *      arg1:"",//视频id
+     *      arg2:"" //视频地址
+     *    }
+     *    new <%= className %>(cfg);
+	 *
      * @constructor
      * @extends S.Base
      */
@@ -25,6 +31,12 @@ KISSY.add("deb/<%= widgetName %>/index",function (S,Base,Node) {
 
 	//Attribute 配置
 	<%= className %>.ATTRS = {
+	    /**
+		 * description
+		 * @attribute a
+		 * @type Node
+		 * @default null
+		 */
 		a: {
 			setter: function(){},
 			getter: function(){},
@@ -33,11 +45,19 @@ KISSY.add("deb/<%= widgetName %>/index",function (S,Base,Node) {
 	};
 
 	S.extend(<%= className %>, S.Base, {
+	
 		init: function(cfg) {
 			// 请在这里开始你的代码
 			console.log("<%= widgetName %> init");
 		},
-
+		/**
+		 * 渲染
+		 * @method render
+		 * @param node {Node} 渲染容器节点
+		 */
+		render:function(node){
+		},
+		
 		destory: function(){
 
 		}
