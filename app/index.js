@@ -1,7 +1,7 @@
 'use strict';
 var util = require('util');
 var path = require('path');
-var exec = require('child_process').exec;
+//var exec = require('child_process').exec;
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
@@ -9,15 +9,27 @@ var yosay = require('yosay');
 var DebGenerator = yeoman.generators.Base.extend({
   init: function () {
     //this.pkg = require('../package.json');
-
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        //this.installDependencies();
-		exec('npm install', {
-			cwd: './' + this.widgetName
-		});
-      }
-    });
+	
+	 this.on('end', function () {
+		var cb = this.async();
+		var that = this;
+		this.prompt([{
+				name: 'npm_install',
+				message: 'Install node_modules for grunt now?',
+				default: 'Y/n',
+				warning: ''
+			}], function (props,err) {
+				if (err) {
+					return this.emit('error', err);
+				}
+				this.npm_install = (/^y/i).test(props.npm_install);
+				if(this.npm_install){
+					this.installDependencies();
+				} else {
+					console.log('\n\nplease run "npm install" before grunt\n');
+				}
+			}.bind(this));
+    }.bind(this));
   },
 
   askFor: function () {
@@ -51,23 +63,23 @@ var DebGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-	this.mkdir(this.widgetName);
+	//this.mkdir(this.widgetName);
 	
-	var dirsrc = path.join(this.widgetName);
+	//exec('cd ' + this.widgetName);
 	
-    this.mkdir(path.join(dirsrc , 'build'));
-    this.mkdir(path.join(dirsrc , 'demo'));
+    this.mkdir('build');
+    this.mkdir('demo');
 	
-	this.copy('index.html',path.join(dirsrc , 'demo/index.html'));
-	this.copy('index.js',path.join(dirsrc , 'index.js'));
-	this.copy('index.less',path.join(dirsrc , 'index.less'));
+	this.copy('index.html','demo/index.html');
+	this.copy('index.js','index.js');
+	this.copy('index.less','index.less');
 	
-	this.copy('.gitignore',path.join(dirsrc , '.gitignore'));
-	this.copy('Gruntfile.js',path.join(dirsrc , 'Gruntfile.js'));
-	this.copy('_package.json', path.join(dirsrc , 'package.json'));
+	this.copy('.gitignore','.gitignore');
+	this.copy('Gruntfile.js','Gruntfile.js');
+	this.copy('_package.json', 'package.json');
 	
 //	this.template('abc.json',path.join(dirsrc , 'abc.json'));
-    this.copy('README.md',path.join(dirsrc , 'README.md'));
+    this.copy('README.md','README.md');
   },
 
   projectfiles: function () {
@@ -75,6 +87,7 @@ var DebGenerator = yeoman.generators.Base.extend({
     this.copy('jshintrc', '.jshintrc');
   }
 });
+
 
 //util.inherits(DebGenerator,yeoman.generators.NamedBase);
 

@@ -1,6 +1,6 @@
 {
   "name": "generator-deb",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "A generator for Yeoman",
   "keywords": [
     "yeoman-generator"
@@ -25,7 +25,6 @@
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
-
     "yosay": "^0.1.0"
   },
   "devDependencies": {
