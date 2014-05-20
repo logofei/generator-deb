@@ -7,19 +7,19 @@ KISSY.add("deb/<%= widgetName %>/index",function (S,Base,Node) {
 
 	"use strict";
 
-    /**
-     * 组件描述
-     * @class <%= className %>
+	/**
+	 * 组件描述
+	 * @class <%= className %>
 	 *
-     *    var cfg = {
-     *      arg1:"",//视频id
-     *      arg2:"" //视频地址
-     *    }
-     *    new <%= className %>(cfg);
+	 *    var cfg = {
+	 *      arg1:"",//视频id
+	 *      arg2:"" //视频地址
+	 *    }
+	 *    new <%= className %>(cfg);
 	 *
-     * @constructor
-     * @extends S.Base
-     */
+	 * @constructor
+	 * @extends S.Base
+	 */
 	function <%= className %>(cfg) {
 		if (this instanceof <%= className %>) {
 			<%= className %>.superclass.constructor.call(this, cfg); // 父类构造器
@@ -31,7 +31,7 @@ KISSY.add("deb/<%= widgetName %>/index",function (S,Base,Node) {
 
 	//Attribute 配置
 	<%= className %>.ATTRS = {
-	    /**
+		/**
 		 * description
 		 * @attribute a
 		 * @type Node
