@@ -63,8 +63,8 @@ var DebGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-	//this.mkdir(this.widgetName);
-	//exec('cd ' + this.widgetName);
+	this.mkdir(this.widgetName);
+	process.chdir('./' + this.widgetName);
 	
     this.mkdir('build');
     this.mkdir('demo');
@@ -73,7 +73,7 @@ var DebGenerator = yeoman.generators.Base.extend({
     this.copy('index.js','index.js');
     this.copy('index.less','index.less');
 	
-    //this.copy('.gitignore','.gitignore');
+    this.copy('.gitignore','.gitignore');
     this.copy('Gruntfile.js','Gruntfile.js');
     this.copy('_package.json', 'package.json');
 	
